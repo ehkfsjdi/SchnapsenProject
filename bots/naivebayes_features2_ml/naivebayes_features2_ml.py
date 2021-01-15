@@ -130,7 +130,7 @@ def features(state):
     stock_size = state.get_stock_size()
 
     # Add leader to feature set
-    leader = state.leader()
+    # leader = state.leader()
 
     # Add whose turn it is to feature set
     whose_turn = state.whose_turn()
@@ -179,7 +179,7 @@ def features(state):
     feature_set.append(stock_size/10)
 
     # Append one-hot encoded leader to feature set
-    feature_set += [1, 0] if leader == 1 else [0, 1]
+    # feature_set += [1, 0] if leader == 1 else [0, 1]
 
     # Append one-hot encoded whose_turn to feature set
     feature_set += [1, 0] if whose_turn == 1 else [0, 1]
