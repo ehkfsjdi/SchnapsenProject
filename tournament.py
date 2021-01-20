@@ -24,6 +24,7 @@ def run_tournament(options):
 
     totalgames = (n*n - n)/2 * options.repeats
     playedgames = 0
+    seed = 7453876
 
     print('Playing {} games:'.format(int(totalgames)))
     for a, b in matches:
@@ -35,7 +36,7 @@ def run_tournament(options):
                 p = [b, a]
 
             # Generate a state with a random seed
-            state = State.generate(phase=int(options.phase))
+            state = State.generate(id=seed, phase=int(options.phase))
 
             winner, score = engine.play(bots[p[0]], bots[p[1]], state, options.max_time*1000, verbose=options.verbose, fast=options.fast)
 
@@ -43,6 +44,7 @@ def run_tournament(options):
                 winner = p[winner - 1]
                 wins[winner] += score
 
+            seed += 1
             playedgames += 1
             print('Played {} out of {:.0f} games ({:.0f}%): {} \r'.format(playedgames, totalgames, playedgames/float(totalgames) * 100, wins))
 
