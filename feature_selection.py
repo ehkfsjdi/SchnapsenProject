@@ -93,22 +93,3 @@ for i,v in enumerate(importance):
 # plot feature importance
 pyplot.bar([x for x in range(len(importance))], importance)
 pyplot.show()
-
-""" import eli5
-from eli5.sklearn import PermutationImportance
-from eli5 import formatters
-from IPython.display import display, HTML
-
-with open('dataset.pkl', 'rb') as output:
-    data, target = pickle.load(output)
-
-
-
-model = joblib.load('./bots/ml/model.pkl')
-
-permutation = PermutationImportance(model).fit(data, target)
-eli5.show_weights(permutation, feature_names=feature_names)
-
-html = eli5.format_as_html(eli5.explain_weights(permutation))
-with open('eli5-test.html', 'w') as f:
-    f.write(html)"""
